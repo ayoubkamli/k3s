@@ -6,15 +6,22 @@ Vagrant.configure("2") do |config|
   config.vm.provision "shell", path: "bootstrap.sh"
 
   config.vm.define "akamliS" do |s|
-    s.vm.box = "centos/8"
+    s.vm.box = "generic/centos7"
+    s.vm.hostname = "akamliS"
+    s.vm.synced_folder "./shared", "/vagrant_shared"
+    config.vm.provider "virtualbox" do |v|
+      v.memory = 1024
+      v.cpus = 1
+    end
   end
 
   config.vm.define "akamliSW" do |w|
-    w.vm.box = "centos/8"
+    w.vm.box = "generic/centos7"
+    w.vm.hostname = "akamliS"
+    w.vm.synced_folder "./shared", "/vagrant_shared"
+    config.vm.provider "virtualbox" do |v|
+      v.memory = 1024
+      v.cpus = 1
+    end
   end
-
-  # config.vm.box = "centos/8"
-  # config.vm.provider "virtualBox"
-  # consig.vm.define "akamliS" 
-  # config.vm.provision :shell, path: "bootstrap.sh"
 end
