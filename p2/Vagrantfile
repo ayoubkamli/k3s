@@ -1,0 +1,17 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+Vagrant.configure("2") do |config|
+
+    config.vm.box = "generic/centos8"
+    config.vm.synced_folder "./shared", "/vagrant_shared"
+    config.vm.provider "virtualbox" do |v|
+      v.memory = 1024
+      v.cpus = 1
+    end
+    config.vm.define "akamliS" do |s|
+      s.vm.hostname = "akamliS"
+      s.vm.network "private_network", ip: "192.168.42.110"
+      s.vm.provision "shell", path: "akamlis.sh"
+    end
+  end
