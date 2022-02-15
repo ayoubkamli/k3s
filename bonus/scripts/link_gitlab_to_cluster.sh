@@ -5,7 +5,7 @@
 #1st enable Requests to the local network: Menu> Admin > Setting > Network > Outbound requests > Allow requests...
 
 #deploy rbac
-sudo kubectl apply -f confs/gitlab-rbac.yaml -n kube-system
+sudo kubectl apply -f ../confs/gitlab-rbac.yaml -n kube-system
 
 # $> sudo kubectl cluster-info | grep -E 'Kubernetes master|Kubernetes control plane' | awk '/http/ {print $NF}'
 # go to infrastructure > kuberenetes > connect to existing cluster

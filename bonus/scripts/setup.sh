@@ -50,8 +50,8 @@ sudo kubectl create namespace argocd
 # ---> expose argoCD API Server by Changing the argocd-server service type to LoadBalancer
 #sudo kubectl patch svc argocd-server -n argocd -p '{"spec": {"type": "LoadBalancer"}}'
 
-sudo kubectl apply -n argocd -f confs/script-argocd.yaml
-sudo kubectl apply -n argocd -f confs/ingress-argocd.yaml
+sudo kubectl apply -n argocd -f ../confs/script-argocd.yaml
+sudo kubectl apply -n argocd -f ../confs/ingress-argocd.yaml
 printf "${GREEN}WAITING for argoCD...\n"
 sudo kubectl -n argocd rollout status deployment argocd-server
 printf "fetching user and password${NC}\n"
@@ -67,6 +67,6 @@ printf "${RED}###############################################${NC}\n"
 
 ############### Deploying argoCD app  #################
 echo -e "${GREEN}---- Deploying argoCD APP ----${NC}"
-sudo kubectl apply -n argocd -f confs/app-argocd.yaml
+sudo kubectl apply -n argocd -f ../confs/app-argocd.yaml
 printf "${GREEN}################### DONE ######################${NC}\n"
 
