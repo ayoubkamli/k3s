@@ -51,5 +51,5 @@ sudo kubectl create ns gitlab
 echo "go to project > settings > CI/CD > Runners"
 echo "and add the IP and token to ~/confs/values.yaml"
 echo "then use the command:"
-echo "'sudo helm install --namespace gitlab gitlab-runner -f confs/values.yaml gitlab/gitlab-runner'"
+echo "'sudo helm install --namespace gitlab gitlab-runner -f ../confs/values.yaml gitlab/gitlab-runner'"
 #sudo helm install --namespace gitlab gitlab-runner -f values.yaml gitlab/gitlab-runner
